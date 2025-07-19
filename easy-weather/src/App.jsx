@@ -4,7 +4,7 @@ import Card from './components/Card'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faWind } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -34,7 +34,7 @@ function App() {
            </div>
         </form>
       </div>
-      <Card/>
+      <Card faWind={faWind} FontAwesomeIcon={FontAwesomeIcon}/>
       <Footer/>
     </>
   )
