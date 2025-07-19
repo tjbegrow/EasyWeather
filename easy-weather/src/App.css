@@ -49,7 +49,7 @@
   border-color: skyblue;
   margin-top: 20px;
   transition: margin-top 1s, background-color 1s;
-  background-color: lavender;
+  background-color: rgba(103, 126, 255, 0.395);
 }
 
 
