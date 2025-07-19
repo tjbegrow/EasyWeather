@@ -12,8 +12,17 @@
 }
 
 .searchArea {
-  margin: auto;
-  width:10%
+  width: 600px;
+  /* background -color: aqua; */
+  margin: 0 auto;
+  text-align: center;
+  /* width: 10%  */
+}
+
+#mag {
+  position: absolute;
+  left: 356px;
+  bottom: 5px
 }
 
 .searchLabel {
@@ -40,18 +49,88 @@
   border-color: skyblue;
   margin-top: 20px;
   transition: margin-top 1s, background-color 1s;
-  background-color: lavender;
+  background-color: rgba(103, 126, 255, 0.395);
 }
 
-#mag {
-  position: absolute;
-  left: 130px;
-  bottom: 5px
-}
+
 
 .weatherCard {
   background-color: antiquewhite;
+  max-width: 400px;
+  max-height: 600px;
+  height: 400px;
+  margin: 20px auto;
+  /* padding-top: 75px; */
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: space-around;
+  border-radius: 50px;
+   background-image: linear-gradient(antiquewhite, goldenrod); /* set this based on time of day */
 }
+.weatherCardMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  
+}
+
+.weatherCardMain i {
+  font-size: 108px;
+  padding: 0px;
+  margin: 0px;
+}
+.weatherCardMain h2 {
+  font-weight: 300;
+  padding: 10px;
+  margin: 0px;
+}
+.weatherCardMain, h1, h3 {
+  font-weight: 500;
+  padding: 0px;
+  margin: 0px;
+}
+.weatherCardMain, h1{
+  font-weight: 500;
+}
+.weatherCardMain, h3 {
+  font-weight: 400;
+  padding: 10px;
+  margin: 0px;
+}
+
+.weatherStats {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.weatherElement {
+  /* background-color: blue ; */
+  /* flex: 1 0 40%; */
+  justify-content: center;
+  text-align: center;
+  padding: 5px;
+}
+.weatherElement > i > span {
+  font-family: monospace;
+  font-weight: 203000;
+  padding: 10px;
+  font-family: "Montserrat", sans-serif;
+
+}
+
+.weatherElement > i {
+  font-size: 1.5em;
+  
+}
+#windGust {
+  font-size: 2em;
+}
+
 
 
 /*
