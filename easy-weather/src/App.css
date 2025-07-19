@@ -66,6 +66,7 @@
   /* align-items: center; */
   justify-content: space-around;
   border-radius: 50px;
+   background-image: linear-gradient(antiquewhite, goldenrod); /* set this based on time of day */
 }
 .weatherCardMain {
   display: flex;
@@ -116,12 +117,14 @@
 }
 .weatherElement > i > span {
   font-family: monospace;
-  /* font-weight: 100; */
-  padding: 10px
+  font-weight: 203000;
+  padding: 10px;
+  font-family: "Montserrat", sans-serif;
+
 }
 
 .weatherElement > i {
-  font-size: 2em;
+  font-size: 1.5em;
   
 }
 #windGust {
