@@ -1,7 +1,11 @@
-export default function Header() {
+
+export default function Header({FontAwesomeIcon, faFolder}) {
     return (
         <>
-            <p>Hello Header</p>
+            <nav>
+                <FontAwesomeIcon icon={faFolder} className="fa-regular"/>
+                <h1>Kouki Check</h1>
+            </nav>
         </>
     )
 }

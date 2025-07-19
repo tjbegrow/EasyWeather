@@ -4,7 +4,7 @@ import Card from './components/Card'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass, faWind } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faWind, faFolder } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -62,13 +62,13 @@ function App() {
 
   const handleSubmit= (e) => {
     e.preventDefault();
-    
+
     getCurrentWeather(e, null);
   }
 
   return (
     <>
-      <Header/>
+      <Header FontAwesomeIcon={FontAwesomeIcon} faFolder={faFolder}/>
       <div className='searchArea'>
         <form onSubmit={handleSubmit}>
           <div className='searchField'>
