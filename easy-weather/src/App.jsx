@@ -19,7 +19,13 @@ function App() {
       redirect: "follow"
     };
     try {
-      const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=9e6fca22ab6846aa9d033544251907&q=${location.latitude}, ${location.longitude}&aqi=yes`, requestOptions)
+      let response;
+      if (e == null) {
+        response = await fetch(`http://api.weatherapi.com/v1/current.json?key=9e6fca22ab6846aa9d033544251907&q=${location.latitude}, ${location.longitude}&aqi=yes`, requestOptions)
+      } else {
+        response = await fetch(`http://api.weatherapi.com/v1/current.json?key=9e6fca22ab6846aa9d033544251907&q=${search}&aqi=yes`, requestOptions)
+      }
+      
       const data = await response.json();
       setWeatherData(data);
       console.log(weatherData)
@@ -56,8 +62,10 @@ function App() {
 
   const handleSubmit= (e) => {
     e.preventDefault();
-    return null
+    
+    getCurrentWeather(e, null);
   }
+
   return (
     <>
       <Header/>
