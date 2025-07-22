@@ -13,6 +13,22 @@ function App() {
   //const [currentLocation, setCurrentLocation] =useState({});
   const [weatherData, setWeatherData] = useState();
   
+  const [darkMode, setDarkMode] = useState(() => {
+      const darkModeStorage = localStorage.getItem('darkMode');
+      console.log("darkModeStorage:", darkModeStorage);
+      return darkModeStorage == "true" ? Boolean(darkModeStorage) : false;
+  });
+
+  useEffect(() => {
+        localStorage.setItem('darkMode', darkMode.toString());
+  }, [darkMode]);
+
+  const darkModeToggle = () => {
+    console.log(darkMode);
+    setDarkMode(!darkMode);
+    //console.log(!darkMode);
+  }
+  
    const getCurrentWeather = async (e, location) => {
     const requestOptions = {
       method: "GET",
@@ -62,13 +78,12 @@ function App() {
 
   const handleSubmit= (e) => {
     e.preventDefault();
-
     getCurrentWeather(e, null);
   }
 
   return (
     <>
-      <Header FontAwesomeIcon={FontAwesomeIcon} faFolder={faFolder}/>
+      <Header FontAwesomeIcon={FontAwesomeIcon} faFolder={faFolder} darkModeToggle={darkModeToggle} darkMode={darkMode}/>
       <div className='searchArea'>
         <form onSubmit={handleSubmit}>
           <div className='searchField'>
