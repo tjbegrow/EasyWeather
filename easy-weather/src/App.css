@@ -133,9 +133,15 @@
   
 }
  nav {
-  background-color: aqua;
+  background-color: whitesmoke;
   height: 4rem;
   margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 20px;
+  padding-left: 20px;
  }
 
  .darkBackGround {
@@ -143,6 +149,40 @@
   color: white;
  }
 
+ .modeButton {
+  border-radius: 50%;
+  border: none;
+  width: 40px;
+  height: 40px;
+ }
+
+ .modeButton:hover {
+  cursor: pointer;
+  background-color: grey;
+  transition: background-color 0.3s ease-in-out;
+  transform: scale(1.05);
+ }
+ 
+
+ .modeButton.wi-day-sunny {
+  margin: 0;
+  padding: 0;
+  background-color: skyblue;
+  color:goldenrod;
+  font-size: 2em;
+  text-shadow: 1px 1px 0 white;
+  box-shadow: 2px 2px 5px goldenrod;
+ }
+
+ .modeButton.wi-moon-waning-crescent-5 {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color:goldenrod;
+  font-size: 2em;
+  text-shadow: 1px 1px 0 gold;
+  box-shadow: 2px 2px 5px goldenrod;
+ }
 
 /*
 .logo {

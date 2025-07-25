@@ -6,9 +6,9 @@ export default function Header({FontAwesomeIcon, faFolder, darkModeToggle, darkM
             <nav className={darkMode ? "darkBackGround" : ""}>
                 <FontAwesomeIcon icon={faFolder} className="fa-regular"/>
                 <h1>Kouki Check</h1>
-                <button 
+                <button className={`modeButton wi ${darkMode ? "wi-moon-waning-crescent-5": "wi-day-sunny"}`}
                 onClick={() => darkModeToggle()}>
-                    Mode Toggle
+                    
                 </button>
             </nav>
         </>
