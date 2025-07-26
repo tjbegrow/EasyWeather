@@ -19,6 +19,33 @@ function App() {
       return darkModeStorage == "true" ? Boolean(darkModeStorage) : false;
   });
 
+  const [autoUpdate, setAutoUpdate] = useState(() => {
+      const autoUpdateStorage = localStorage.getItem('autoUpdate');
+      console.log("autoUpdateStorage:", autoUpdateStorage);
+      return autoUpdateStorage == "true" ? Boolean(autoUpdateStorage) : false;
+  });
+
+  //const [intervalId, setIntervalId] = useState(null);
+  
+  useEffect(() => {
+        localStorage.setItem('autoUpdateStorage', autoUpdate.toString());
+        let intervalId;
+        if (autoUpdate) {
+          intervalId = setInterval(() => {
+            getCurrentWeather(null, true, search);
+          }, 5000);
+          
+        } else {
+          if(intervalId){
+            
+            clearInterval(intervalId);
+          }
+        }
+        return () => {
+          clearInterval(intervalId);
+      };
+  }, [autoUpdate]);
+
   useEffect(() => {
         localStorage.setItem('darkMode', darkMode.toString());
   }, [darkMode]);
@@ -29,14 +56,14 @@ function App() {
     //console.log(!darkMode);
   }
   
-   const getCurrentWeather = async (e, location) => {
+   const getCurrentWeather = async (e, timer, location) => {
     const requestOptions = {
       method: "GET",
       redirect: "follow"
     };
     try {
       let response;
-      if (e == null) {
+      if (e == null && timer == null) {
         response = await fetch(`http://api.weatherapi.com/v1/current.json?key=9e6fca22ab6846aa9d033544251907&q=${location.latitude}, ${location.longitude}&aqi=yes`, requestOptions)
       } else {
         response = await fetch(`http://api.weatherapi.com/v1/current.json?key=9e6fca22ab6846aa9d033544251907&q=${search}&aqi=yes`, requestOptions)
@@ -49,9 +76,6 @@ function App() {
       console.error('Error:', error);
     }
   }
-      
-
-
   //let currentLocation = {};
   const locationOptions = {
     enableHighAccuracy: true,
@@ -70,6 +94,8 @@ function App() {
   function error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
   }
+
+
   
   
   useEffect(() => {
@@ -78,12 +104,12 @@ function App() {
 
   const handleSubmit= (e) => {
     e.preventDefault();
-    getCurrentWeather(e, null);
+    getCurrentWeather(e, false, null);
   }
 
   return (
     <div className={`${darkMode ? "appDark" : "app"}`}>
-      <Header FontAwesomeIcon={FontAwesomeIcon} faGears={faGears} darkModeToggle={darkModeToggle} darkMode={darkMode}/>
+      <Header FontAwesomeIcon={FontAwesomeIcon} faGears={faGears} darkModeToggle={darkModeToggle} darkMode={darkMode} autoUpdate={autoUpdate} setAutoUpdate={setAutoUpdate}/>
       <div className='searchArea'>
         <form onSubmit={handleSubmit}>
           <div className='searchField'>

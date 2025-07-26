@@ -33,6 +33,7 @@ export default function Card({ faWind, FontAwesomeIcon, weatherData, darkMode })
                 <div className="weatherElement">
                    {weatherData && <i className="wi wi-barometer"><span>{weatherData.current.pressure_in}"</span></i>}
                 </div>
+                <p>{weatherData && weatherData.location.localtime}</p>
             </div>
         </div>
     )
