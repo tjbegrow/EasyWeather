@@ -1,10 +1,10 @@
 
-export default function Header({FontAwesomeIcon, faFolder, darkModeToggle, darkMode}) {
+export default function Header({FontAwesomeIcon, faGears, darkModeToggle, darkMode}) {
     console.log("Header Gets:",darkMode);
     return (
         <>
             <nav className={darkMode ? "darkBackGround" : ""}>
-                <FontAwesomeIcon icon={faFolder} className="fa-regular"/>
+                <FontAwesomeIcon icon={faGears} className="fa-regular fa-2x"/>
                 <h1>Kouki Check</h1>
                 <button className={`modeButton wi ${darkMode ? "wi-moon-waning-crescent-5": "wi-day-sunny"}`}
                 onClick={() => darkModeToggle()}>

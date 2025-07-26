@@ -1,14 +1,23 @@
 
 
-#root {
-  max-width: 1280px;
+.app {
+  max-width: 100%;
+  
   margin: 0 auto;
-  padding: 2rem;
+  /* padding: 2rem; */
   /* text-align: center; */
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  background-color: rgb(235, 235, 250);
+}
+
+.appDark {
+  background-color: rgb(41, 41, 41);
+  font-family: "Montserrat", sans-serif;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 .searchArea {
@@ -21,8 +30,8 @@
 
 #mag {
   position: absolute;
-  left: 356px;
-  bottom: 5px
+  left: 380px;
+  bottom: 10px;
 }
 
 .searchLabel {
@@ -30,7 +39,7 @@
   padding-left: 5px;
   /* top: -2px; */
   z-index: -1;
-  font-size: .75rem;
+  font-size: 1rem;
 }
 
 .searchField {
@@ -41,15 +50,29 @@
   background-color: transparent;
   border-top: none;
   border-left: none;
-  padding: 5px
+  border-color: black;
+  padding: 7px;
+  font-size: 1rem;
+}
+
+.searchField input[type="text"]::placeholder{
+  font-family: "Pacifico", cursive;
+  font-weight: 200;
+  color:rgb(90, 90, 90)
+}
+
+.searchField input:focus[type="text"]::placeholder{
+  
+  color:white;
 }
 
 .searchField input:focus {
   outline: none;
   border-color: skyblue;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   transition: margin-top 1s, background-color 1s;
-  background-color: rgba(103, 126, 255, 0.395);
+  background-color: rgba(103, 126, 255, 0.893);
+  color: white;
 }
 
 
@@ -66,21 +89,56 @@
   /* align-items: center; */
   justify-content: space-around;
   border-radius: 50px;
-  background-image: linear-gradient(antiquewhite, goldenrod); /* set this based on time of day */
-  
+  background-image: linear-gradient(antiquewhite, rgba(218, 165, 32, 0.526)); 
+  border-width: 5px;
+  border-style: solid;
+  border-color: black;
 }
+.weatherCardDark {
+  background-color:black;
+  max-width: 400px;
+  max-height: 600px;
+  height: 400px;
+  margin: 20px auto;
+  /* padding-top: 75px; */
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: space-around;
+  border-radius: 50px;
+  /* background-image: linear-gradient(antiquewhite, rgba(218, 165, 32, 0.526));  */
+  border-width: 5px;
+  border-style: solid;
+  border-color: white;
+  color: white;
+}
+
 .weatherCardMain {
   display: flex;
   flex-direction: column;
   align-items: center;
   /* margin-bottom: 20px; */
-  
+  width: 100%
+}
+.weatherCardMainDark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin-bottom: 20px; */
+  width: 100%
 }
 
 .weatherCardMain i {
   font-size: 72px;
   padding: 0px;
   margin-top: 20px;
+
+}
+.weatherCardMainDark i {
+  font-size: 72px;
+  padding: 0px;
+  margin-top: 20px;
+
 }
 .weatherCardMain > h2 {
   font-weight: 400;
@@ -88,7 +146,7 @@
   padding-bottom: 20px;
   margin: 0px;
   text-align: center;
-  font-size: 1.25em;
+  font-size: 1.5em;
 }
 .weatherCardMain > h1 {
   font-weight: 600;
@@ -98,11 +156,37 @@
   border-radius: 100%;
 }
 
+.weatherCardMainDark > h1 {
+  color: black;
+  font-weight: 600;
+  background-color: aliceblue;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 100%;
+}
+.weatherCardDark > h2 {
+  font-weight: 400;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 0px;
+  text-align: center;
+  font-size: 1.5em;
+}
+.weatherCardMainDark > h3 {
+  font-weight: 400;
+  padding: 10px;
+  margin: 0px;
+  font-size: 1em;
+  text-align: center;
+}
+
+
 .weatherCardMain > h3 {
   font-weight: 400;
   padding: 10px;
   margin: 0px;
-  font-size: .8em;
+  font-size: 1em;
+  text-align: center;
 }
 
 .weatherStats {
@@ -133,7 +217,7 @@
   
 }
  nav {
-  background-color: whitesmoke;
+  background-color: rgb(215, 230, 252);
   height: 4rem;
   margin-bottom: 2rem;
   display: flex;
@@ -182,6 +266,18 @@
   font-size: 2em;
   text-shadow: 1px 1px 0 gold;
   box-shadow: 2px 2px 5px goldenrod;
+ }
+
+footer {
+  background-color: rgb(215, 230, 252);
+  height: 4rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 20px;
+  padding-left: 20px;
  }
 
 /*

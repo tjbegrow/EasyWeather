@@ -4,7 +4,7 @@ import Card from './components/Card'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass, faWind, faFolder } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faWind, faGears } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -82,8 +82,8 @@ function App() {
   }
 
   return (
-    <>
-      <Header FontAwesomeIcon={FontAwesomeIcon} faFolder={faFolder} darkModeToggle={darkModeToggle} darkMode={darkMode}/>
+    <div className={`${darkMode ? "appDark" : "app"}`}>
+      <Header FontAwesomeIcon={FontAwesomeIcon} faGears={faGears} darkModeToggle={darkModeToggle} darkMode={darkMode}/>
       <div className='searchArea'>
         <form onSubmit={handleSubmit}>
           <div className='searchField'>
@@ -93,6 +93,7 @@ function App() {
               type="text"
               id="search"
               name="search"
+              placeholder="Search Anywhere"
               value={search}
               onChange={(e) => setSearch(e.target.value) }
             />
@@ -100,9 +101,9 @@ function App() {
            </div>
         </form>
       </div>
-      <Card faWind={faWind} FontAwesomeIcon={FontAwesomeIcon} weatherData={weatherData}/>
-      <Footer/>
-    </>
+      <Card faWind={faWind} FontAwesomeIcon={FontAwesomeIcon} weatherData={weatherData} darkModeToggle={darkModeToggle} darkMode={darkMode}/>
+      <Footer darkMode={darkMode}/>
+    </div>
   )
 }
 
